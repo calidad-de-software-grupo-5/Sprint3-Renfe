@@ -5,8 +5,10 @@ cache: bundler
 rvm:
   - 1.9.3
 
-before_script: 'bundle install'
-script: 'cd Testing-Selenium'
+before_script:
+    - cd Testing-Selenium
+    - bundle install
+
 script: 'bundle exec cucumber'
 
 branches:
