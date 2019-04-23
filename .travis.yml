@@ -10,9 +10,6 @@ addons:
     packages:
       - google-chrome-stable
 
-rvm:
-  - 1.9.3
-
 before_script:
   - gem install cucumber
   - gem install bundler:2.0.1
