@@ -1,6 +1,7 @@
 language: ruby
 sudo: required
 dist: trusty
+cache: bundler
 
 rvm:
   - 2.6
@@ -11,6 +12,7 @@ rvm:
   - 2.2.10
   - 2.1.10
   - jruby-9.1.16.0
+  - 1.9.3
 gemfile:
   - Gemfile
 env:
@@ -27,6 +29,13 @@ addons:
       - awesome
 
 
+before_script: 'bundle install'
+script: 'bundle exec cucumber'
+ 
+branches:
+  only:
+    - master
+
 cache:
   bundler: true
   directories:
@@ -34,11 +43,6 @@ cache:
     - $PWD/travis-phantomjs2
     
 
-addons:
-  sonarcloud:
-    organization: calidad-de-software-grupo-5
-    token:
-      secure: 6326679947394c5a7eb04f916feeb7ee09c3d612
 
 script: 
   - echo "Travis branch is $TRAVIS_BRANCH"
